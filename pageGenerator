@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library of Babel Page</title>
+    <style>
+        body {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        #content {
+            background: white;
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid black;
+            font-size: 14px;
+            text-align: left;
+            width: 640px;
+            word-wrap: break-word;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library of Babel - Meaningful Page</h1>
+    <div id="content"></div>
+    <br>
+    <button onclick="generatePage()">Generate New Page</button>
+
+    <script>
+        const words = ["the", "and", "of", "to", "a", "in", "that", "is", "was", "he", "for", "it", "with", "as", "his", "on", "be", "at", "by", "I", "this", "had", "not", "are", "but", "from", "or", "have", "an", "they", "which", "one", "you", "were", "all", "her", "she", "there", "would", "their", "we", "him", "been", "has", "when", "who", "will", "more", "if", "no", "out", "so", "said", "what", "up", "its", "about", "into", "than", "them", "can", "only", "other", "new", "some", "time", "could", "these", "two", "may", "first", "then", "do", "any", "like", "my", "now", "over", "such", "our", "man", "me", "even", "most", "made", "after", "also", "did", "many", "before", "must", "through", "back", "years", "where", "much", "your", "way", "well", "down", "should", "because", "each", "just", "those", "people", "Mr", "how", "too", "little", "state", "good", "very", "make", "world", "still", "see", "own", "men", "work", "long", "get", "here", "between", "both", "life", "being", "under", "never", "day", "same", "another", "know", "while", "last", "might", "great", "old", "year", "off", "come", "since", "go", "against", "right", "used", "three", "himself", "look", "few", "general", "heart", "hand", "high", "among", "however", "without", "course", "enough", "yet", "always", "set", "end", "thus", "taken", "present", "quite", "upon", "began", "true", "fact", "although", "whom", "order", "less", "often", "probably", "small", "side", "face", "toward", "place", "family", "power", "once", "words", "given", "possible", "felt", "indeed", "already", "half", "shown", "meaning"];
+
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function generatePage() {
+            let pageContent = "";
+            for (let i = 0; i < 40; i++) {
+                let line = "";
+                while (line.length < 80) {
+                    let word = getRandomWord();
+                    if (line.length + word.length + 1 <= 80) {
+                        line += (line.length === 0 ? "" : " ") + word;
+                    } else {
+                        break;
+                    }
+                }
+                pageContent += line + "\n";
+            }
+            document.getElementById("content").textContent = pageContent;
+        }
+
+        // Generate initial page on load
+        generatePage();
+    </script>
+</body>
+</html>
